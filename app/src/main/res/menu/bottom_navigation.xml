@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_alarm"
+        android:enabled="true"
+        android:icon="@drawable/play"
+        android:title="@string/page_alarm"/>
+    <item
+        android:id="@+id/page_stop_watch"
+        android:enabled="true"
+        android:icon="@drawable/play"
+        android:title="@string/page_stop_watch"/>
+    <item
+        android:id="@+id/page_timer"
+        android:enabled="true"
+        android:icon="@drawable/play"
+        android:title="@string/page_timer"/>
+</menu>

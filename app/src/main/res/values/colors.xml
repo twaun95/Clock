@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+
+    <color name="mono1">#FFFFFF</color>
+    <color name="mono2">#F1F4F8</color>
+    <color name="mono3">#E9ECF1</color>
+    <color name="mono4">#D5DAE1</color>
+    <color name="mono5">#C5CAD2</color>
+    <color name="mono6">#6E7A8F</color>
+    <color name="mono7">#707478</color>
+    <color name="mono8">#202020</color>
 </resources>
