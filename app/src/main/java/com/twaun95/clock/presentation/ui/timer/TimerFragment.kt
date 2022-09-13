@@ -1,7 +1,7 @@
 package com.twaun95.clock.presentation.ui.timer
 
-import android.os.Handler
-import android.os.Looper
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
 import com.twaun95.clock.R
 import com.twaun95.clock.databinding.FragmentTimerBinding
 import com.twaun95.clock.presentation.extensions.setOnSingleClickListener
@@ -10,6 +10,7 @@ import com.twaun95.core.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.concurrent.thread
+
 
 class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel, MainActivityViewModel>(
     R.layout.fragment_timer) {
@@ -20,11 +21,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
         super.initView()
 
         binding.fragmentVM = fragmentVM
-    }
-
-    override fun setObserver() {
-        super.setObserver()
-
+        setSpinner()
     }
 
     override fun setEvent() {
@@ -38,6 +35,13 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
             }
         }
     }
+
+    private fun setSpinner() {
+
+    }
+
+
+
 
     companion object {
         fun getInstance() : TimerFragment = TimerFragment()

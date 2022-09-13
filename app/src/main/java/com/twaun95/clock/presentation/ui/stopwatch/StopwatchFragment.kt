@@ -54,6 +54,7 @@ class StopwatchFragment :
         binding.buttonLap.setOnSingleClickListener {
             this.fragmentVM.addLapTime()
             lapAdapter.update(this.fragmentVM.lapList)
+            binding.rvLap.scrollToPosition(0)
         }
     }
 
