@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "340406333952",
+    "project_id": "clock-34866",
+    "storage_bucket": "clock-34866.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340406333952:android:8d456b15573f844d115ee5",
+        "android_client_info": {
+          "package_name": "com.twaun95.clock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340406333952-rdkh3nkc9ffiq6pofuptdk5u8d6fo4qu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvwdZtyZd6-viqCEs8MoqFGqguOoPOGc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340406333952-rdkh3nkc9ffiq6pofuptdk5u8d6fo4qu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
