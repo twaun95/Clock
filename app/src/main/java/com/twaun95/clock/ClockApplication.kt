@@ -1,6 +1,7 @@
 package com.twaun95.clock
 
 import android.app.Application
+import com.twaun95.clock.di.modules.HandlerModule
 import com.twaun95.clock.di.modules.LogModule
 import com.twaun95.clock.di.modules.ViewModelModule
 import com.twaun95.core.logger.ActivityLifecycleLogger
@@ -20,6 +21,7 @@ class ClockApplication : Application() {
             androidContext(this@ClockApplication)
             modules(
                 LogModule.module,
+                HandlerModule.module,
                 ViewModelModule.module
             )
         }

@@ -1,7 +1,14 @@
 package com.twaun95.clock.presentation.ui.main
 
+import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat
 import com.twaun95.clock.R
 import com.twaun95.clock.databinding.ActivityMainBinding
+import com.twaun95.clock.service.AlarmReceiver
 import com.twaun95.core.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,5 +52,4 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>(R.
             }
         }
     }
-
 }

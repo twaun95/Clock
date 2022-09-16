@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.twaun95.clock">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+<!--    <uses-permission android:name="android.permission.INTERNET"/>-->
     
     <application
         android:name=".ClockApplication"
@@ -17,14 +17,18 @@
         android:theme="@style/Theme.Clock"
         tools:targetApi="31">
 
-        <service
-            android:name=".service.MessagingService"
+<!--        <service-->
+<!--            android:name=".service.MessagingService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT"/>-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+        
+        <receiver
+            android:name=".service.AlarmReceiver"
             android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-
-        </service>
+        </receiver>
 
         <activity
             android:name=".presentation.ui.main.MainActivity"
