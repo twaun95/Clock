@@ -1,5 +1,6 @@
 package com.twaun95.clock.presentation.adapter
 
+import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.twaun95.clock.presentation.ui.stopwatch.Lap
@@ -12,3 +13,7 @@ fun bindLapTimeList(rvLapTime: RecyclerView, lapTimeList: List<Lap>) {
     }
 }
 
+@BindingAdapter("android:visibility")
+fun setVisibility(view: View, visible: Boolean) {
+    view.visibility = if (visible) View.VISIBLE else View.GONE
+}
