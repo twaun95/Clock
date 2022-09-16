@@ -9,7 +9,10 @@
 ### 1. 알람(푸시알람)
 
 - 알람 시간 선택 (TimerPicker)
-- FCM(FireBase Cloud Messaging
+- FCM(FireBase Cloud Messaging -> Notification & AlamManager 로 변경
+
+FCM은 서버와 연동해서 사용하는 것이 좋다고 판단.
+알람 등록은 서버가 아닌 로컬에서 관리해야 시간 동기화가 될 것 같다..
 
 ### 2. 스톱워치
 - Timer
