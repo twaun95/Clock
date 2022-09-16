@@ -2,6 +2,8 @@ package com.twaun95.clock.presentation.extensions
 
 import android.os.SystemClock
 import android.view.View
+import androidx.databinding.BindingAdapter
+import com.twaun95.clock.R
 
 class OnSingleClickListener(
     private val onClickListener: (view: View) -> Unit

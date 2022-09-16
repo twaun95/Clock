@@ -8,10 +8,19 @@ import com.twaun95.core.base.BaseViewModel
 
 class TimerFragmentViewModel : BaseViewModel() {
 
+    val viewState by lazy { MutableNonNullLiveData(TimerViewState.SELECT_TIME) }
     val progressValue by lazy { MutableNonNullLiveData(0) }
 
-    fun addProgress() {
+    fun startTimer() {
+        viewState.value = TimerViewState.PROGRESS
+    }
 
+    fun pauseTimer() {
+
+    }
+
+    fun cancel() {
+        viewState.value = TimerViewState.SELECT_TIME
     }
 
 }
