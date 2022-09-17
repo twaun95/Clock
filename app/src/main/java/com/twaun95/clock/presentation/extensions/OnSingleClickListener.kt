@@ -4,6 +4,7 @@ import android.os.SystemClock
 import android.view.View
 import androidx.databinding.BindingAdapter
 import com.twaun95.clock.R
+import com.twaun95.clock.common.Logger
 
 class OnSingleClickListener(
     private val onClickListener: (view: View) -> Unit
@@ -29,3 +30,12 @@ fun View.setOnSingleClickListener(
 ) {
     setOnClickListener(OnSingleClickListener(onClickListener))
 }
+
+//@BindingAdapter("android:onClick")
+//fun onSingleClick(
+//    view: View,
+//    listener: View.OnClickListener
+//) {
+//    Logger.d("onSingleClick")
+//    view.setOnClickListener(OnSingleClickListener(listener))
+//}

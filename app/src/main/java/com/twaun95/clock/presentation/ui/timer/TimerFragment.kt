@@ -1,24 +1,14 @@
 package com.twaun95.clock.presentation.ui.timer
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
-import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.SpinnerAdapter
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.children
 import com.twaun95.clock.R
 import com.twaun95.clock.databinding.FragmentTimerBinding
 import com.twaun95.clock.presentation.extensions.setOnSingleClickListener
-import com.twaun95.clock.presentation.extensions.visible
 import com.twaun95.clock.presentation.ui.main.MainActivityViewModel
 import com.twaun95.core.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.concurrent.thread
-import kotlin.math.max
 
 
 class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel, MainActivityViewModel>(
@@ -35,18 +25,18 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
 
     override fun setEvent() {
         super.setEvent()
-        binding.buttonPlayStop.setOnSingleClickListener {
-            fragmentVM.startTimer()
-            thread(true){
-                for(i in 1..101) {
-                    Thread.sleep(25)
-                    this.fragmentVM.progressValue.postValue(this.fragmentVM.progressValue.value.plus(1))
-                }
-            }
-        }
-        binding.buttonCancel.setOnSingleClickListener {
-            fragmentVM.cancel()
-        }
+//        binding.buttonPlayStop.setOnSingleClickListener {
+//            fragmentVM.timerPauseOrPlay()
+//            thread(true){
+//                for(i in 1..101) {
+//                    Thread.sleep(25)
+//                    this.fragmentVM.progressValue.postValue(this.fragmentVM.progressValue.value.plus(1))
+//                }
+//            }
+//        }
+//        binding.buttonCancelStart.setOnSingleClickListener {
+//            fragmentVM.startOrCancel()
+//        }
     }
 
     private fun setPicker() {
@@ -71,9 +61,6 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
             maxValue = 59
         }
     }
-
-
-
 
     companion object {
         fun getInstance() : TimerFragment = TimerFragment()

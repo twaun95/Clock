@@ -22,7 +22,7 @@
                 android:id="@+id/layout_seekbar"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:visibility="@{fragmentVM.viewState==TimerViewState.SELECT_TIME}"
+                android:visibility="@{fragmentVM.viewState==TimerViewState.IDLE}"
                 app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -68,17 +68,68 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_watch"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/purple_200"
+                app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gl_top_progress">
+
+                <TextView
+                    android:id="@+id/tv_min"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="@{fragmentVM.min}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_sec"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_sec"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="@{fragmentVM.sec}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_mSec"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_min"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_mSec"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="@{fragmentVM.mSec}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_sec"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <ProgressBar
                 android:id="@+id/progressBarCircle"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:indeterminate="false"
-                android:max="100"
-                android:progress="@{fragmentVM.progressValue}"
+                android:max="1234"
+                android:progress="@{fragmentVM.time}"
                 android:progressDrawable="@drawable/progress_circle"
                 android:rotation="-90"
-                android:visibility="@{fragmentVM.viewState==TimerViewState.PROGRESS}"
+                android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
                 app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -95,11 +146,13 @@
                 app:layout_constraintTop_toBottomOf="@id/gl_bottom_progress">
 
                 <Button
-                    android:id="@+id/button_cancel"
+                    android:id="@+id/button_cancel_start"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
                     android:text="취소"
+                    android:onClick="@{()->fragmentVM.startOrCancel()}"
+                    android:background="@{fragmentVM.viewState==TimerViewState.IDLE ? @drawable/play : @drawable/ic_launcher_foreground}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/button_play_stop"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -112,10 +165,12 @@
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
                     android:text="시작"
+                    android:onClick="@{()->fragmentVM.timerPauseOrPlay()}"
+                    android:background="@{fragmentVM.viewState==TimerViewState.IDLE ? @drawable/play : @drawable/ic_launcher_foreground}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button_cancel"
+                    app:layout_constraintStart_toEndOf="@+id/button_cancel_start"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
