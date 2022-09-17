@@ -8,7 +8,6 @@ import kotlin.concurrent.timer
 class TimerFragmentViewModel : BaseViewModel() {
 
     val viewState by lazy { MutableNonNullLiveData(TimerViewState.IDLE) }
-    val progressValue by lazy { MutableNonNullLiveData(0) }
 
     val time by lazy { MutableNonNullLiveData(0) } // 1000-1초
     private var timerTask: Timer? = null
@@ -17,7 +16,7 @@ class TimerFragmentViewModel : BaseViewModel() {
     val sec by lazy { MutableNonNullLiveData("0") }
     val mSec by lazy { MutableNonNullLiveData("0") }
 
-    fun setTimer(timer: Int) {
+    private fun setTimer(timer: Int) {
         time.value = timer
         min.value = (time.value/6000).toString()
         sec.value = ((time.value/100)%60).toString()
@@ -36,43 +35,12 @@ class TimerFragmentViewModel : BaseViewModel() {
         }
     }
 
-    fun playTimer() {
-        viewState.value = TimerViewState.RUNNING
-
-        timerTask = timer(period = 10){
-
-            if (time.value<=0) {
-                cancel()
-            }
-            time.postValue(time.value.minus(1))
-            min.postValue((time.value/6000).toString())
-            sec.postValue(((time.value/100)%60).toString())
-            mSec.postValue((time.value%100).toString())
-        }
+    fun startTimer(hour: Int, minute: Int, sec: Int) {
+        setTimer(minute*100 + sec)
+        playTimer()
     }
 
-    fun pauseTimer() {
-        viewState.value = TimerViewState.PAUSE
-
-        timerTask?.cancel()
-    }
-
-    fun startOrCancel() {
-        when(viewState.value) {
-            TimerViewState.IDLE -> {
-                setTimer(1234)
-                playTimer()
-            }
-            TimerViewState.RUNNING -> {
-
-            }
-            TimerViewState.PAUSE -> {
-                reset()
-            }
-        }
-    }
-
-    fun reset() {
+    fun cancelTimer() {
         viewState.value = TimerViewState.IDLE
 
         timerTask?.cancel()
@@ -81,5 +49,23 @@ class TimerFragmentViewModel : BaseViewModel() {
         sec.value = 0.toString()
         mSec.value = 0.toString()
     }
+
+    private fun playTimer() {
+        viewState.value = TimerViewState.RUNNING
+
+        timerTask = timer(period = 10){
+            if (time.value<=0) cancel()
+            time.postValue(time.value.minus(1))
+            min.postValue((time.value/6000).toString())
+            sec.postValue(((time.value/100)%60).toString())
+            mSec.postValue((time.value%100).toString())
+        }
+    }
+
+    private fun pauseTimer() {
+        viewState.value = TimerViewState.PAUSE
+        timerTask?.cancel()
+    }
+
 
 }

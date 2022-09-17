@@ -37,6 +37,10 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
 //        binding.buttonCancelStart.setOnSingleClickListener {
 //            fragmentVM.startOrCancel()
 //        }
+
+        binding.buttonStart.setOnSingleClickListener {
+            fragmentVM.startTimer(binding.pickerHour.value, binding.pickerMinute.value, binding.pickerSec.value)
+        }
     }
 
     private fun setPicker() {

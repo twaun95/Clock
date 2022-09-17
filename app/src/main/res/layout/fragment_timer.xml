@@ -46,6 +46,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
+                    app:textFormat="분"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/picker_sec"
                     app:layout_constraintHeight_percent="0.7"
@@ -73,6 +74,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@color/purple_200"
+                android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
                 app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -146,13 +148,26 @@
                 app:layout_constraintTop_toBottomOf="@id/gl_bottom_progress">
 
                 <Button
-                    android:id="@+id/button_cancel_start"
+                    android:id="@+id/button_cancel"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
                     android:text="취소"
-                    android:onClick="@{()->fragmentVM.startOrCancel()}"
-                    android:background="@{fragmentVM.viewState==TimerViewState.IDLE ? @drawable/play : @drawable/ic_launcher_foreground}"
+                    android:onClick="@{()->fragmentVM.cancelTimer()}"
+                    android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_play_stop"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button_start"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="10dp"
+                    android:text="시작"
+                    android:visibility="@{fragmentVM.viewState==TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/button_play_stop"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -164,13 +179,13 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
-                    android:text="시작"
+                    android:text="정지"
                     android:onClick="@{()->fragmentVM.timerPauseOrPlay()}"
                     android:background="@{fragmentVM.viewState==TimerViewState.IDLE ? @drawable/play : @drawable/ic_launcher_foreground}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button_cancel_start"
+                    app:layout_constraintStart_toEndOf="@+id/button_cancel"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
