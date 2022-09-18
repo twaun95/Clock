@@ -27,8 +27,6 @@
                 android:id="@+id/button_register"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/bold"
-                android:text="아아아아아"
                 android:background="@drawable/play"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
