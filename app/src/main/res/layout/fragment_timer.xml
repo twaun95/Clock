@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="fragmentVM"
             type="com.twaun95.clock.presentation.ui.timer.TimerFragmentViewModel" />
-        <import type="com.twaun95.clock.presentation.ui.timer.TimerViewState"/>
+
+        <import type="com.twaun95.clock.presentation.ui.timer.TimerViewState" />
     </data>
 
     <FrameLayout
@@ -46,13 +48,13 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
-                    app:textFormat="분"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/picker_sec"
                     app:layout_constraintHeight_percent="0.7"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/picker_hour"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textFormat="분" />
 
                 <NumberPicker
                     android:id="@+id/picker_sec"
@@ -127,7 +129,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:indeterminate="false"
-                android:max="1234"
+                android:max="@{fragmentVM.max}"
                 android:progress="@{fragmentVM.time}"
                 android:progressDrawable="@drawable/progress_circle"
                 android:rotation="-90"
@@ -147,17 +149,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gl_bottom_progress">
 
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".5" />
+
                 <Button
                     android:id="@+id/button_cancel"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
-                    android:text="취소"
                     android:onClick="@{()->fragmentVM.cancelTimer()}"
+                    android:text="취소"
                     android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/button_play_stop"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_center_horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -169,8 +177,7 @@
                     android:text="시작"
                     android:visibility="@{fragmentVM.viewState==TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/button_play_stop"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_center_horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -179,13 +186,13 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
-                    android:text="정지"
+                    android:background="@{fragmentVM.viewState==TimerViewState.PAUSE ? @drawable/play : fragmentVM.viewState==TimerViewState.RUNNING ? @drawable/ic_launcher_foreground : @drawable/temp}"
                     android:onClick="@{()->fragmentVM.timerPauseOrPlay()}"
-                    android:background="@{fragmentVM.viewState==TimerViewState.IDLE ? @drawable/play : @drawable/ic_launcher_foreground}"
+                    android:text="정지"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button_cancel"
+                    app:layout_constraintStart_toEndOf="@id/guideline_center_horizontal"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

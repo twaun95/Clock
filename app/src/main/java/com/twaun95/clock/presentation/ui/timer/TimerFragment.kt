@@ -25,19 +25,6 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
 
     override fun setEvent() {
         super.setEvent()
-//        binding.buttonPlayStop.setOnSingleClickListener {
-//            fragmentVM.timerPauseOrPlay()
-//            thread(true){
-//                for(i in 1..101) {
-//                    Thread.sleep(25)
-//                    this.fragmentVM.progressValue.postValue(this.fragmentVM.progressValue.value.plus(1))
-//                }
-//            }
-//        }
-//        binding.buttonCancelStart.setOnSingleClickListener {
-//            fragmentVM.startOrCancel()
-//        }
-
         binding.buttonStart.setOnSingleClickListener {
             fragmentVM.startTimer(binding.pickerHour.value, binding.pickerMinute.value, binding.pickerSec.value)
         }
