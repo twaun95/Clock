@@ -3,7 +3,6 @@ package com.twaun95.clock.presentation.ui.timer
 import androidx.lifecycle.viewModelScope
 import com.twaun95.clock.common.MutableNonNullLiveData
 import com.twaun95.core.base.BaseViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
@@ -17,9 +16,9 @@ class TimerFragmentViewModel : BaseViewModel() {
     private var timerTask: Timer? = null
 
     val max by lazy { MutableNonNullLiveData(0) }
-    val min by lazy { MutableNonNullLiveData("0") }
+    val hour by lazy { MutableNonNullLiveData("0") }
+    val minute by lazy { MutableNonNullLiveData("0") }
     val sec by lazy { MutableNonNullLiveData("0") }
-    val mSec by lazy { MutableNonNullLiveData("0") }
 
     fun timerPauseOrPlay() {
         when(viewState.value) {
@@ -40,16 +39,16 @@ class TimerFragmentViewModel : BaseViewModel() {
 
         timerTask?.cancel()
         time.value = 0
-        min.value = 0.toString()
+        hour.value = 0.toString()
+        minute.value = 0.toString()
         sec.value = 0.toString()
-        mSec.value = 0.toString()
     }
 
     private fun setTimer(timer: Int) {
         time.value = timer
-        min.value = (time.value/360000).toString()
-        sec.value = ((time.value/6000) % 60).toString()
-        mSec.value = ((time.value%6000) / 100).toString()
+        hour.value = (time.value/360000).toString()
+        minute.value = ((time.value/6000) % 60).toString()
+        sec.value = ((time.value%6000) / 100).toString()
     }
 
     private fun playTimer() {
@@ -59,9 +58,9 @@ class TimerFragmentViewModel : BaseViewModel() {
             delay(1000L)
             timerTask = timer(period = 10){
                 if (time.value<=0) cancel()
-                min.postValue((time.value/360000).toString())
-                sec.postValue(((time.value/6000) % 60).toString())
-                mSec.postValue(((time.value%6000) / 100).toString())
+                hour.postValue((time.value/360000).toString())
+                minute.postValue(((time.value/6000) % 60).toString())
+                sec.postValue(((time.value%6000) / 100).toString())
                 time.postValue(time.value.minus(1))
             }
         }

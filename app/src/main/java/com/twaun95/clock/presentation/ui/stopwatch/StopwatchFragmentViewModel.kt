@@ -48,6 +48,6 @@ class StopwatchFragmentViewModel : BaseViewModel() {
         state.value = StopWatchState.IDLE
     }
 
-    fun addLapTime() = lapList.add(0, Lap(lapList.size+1, time))
+    fun addLapTime() = lapList.add(0, Lap(lapList.size+1, mSec.value, sec.value, min.value))
     private fun resetLapTime() = lapList.clear()
 }

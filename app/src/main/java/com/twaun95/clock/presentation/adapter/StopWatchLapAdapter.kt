@@ -1,5 +1,6 @@
 package com.twaun95.clock.presentation.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -43,7 +44,7 @@ class StopWatchLapAdapter : RecyclerView.Adapter<StopWatchLapAdapter.LapViewHold
             lapData: Lap
         ) {
             binding.tvOrder.text = lapData.order.toString()
-            binding.tvLaptime.text = lapData.lapTime.toString()
+            binding.tvLaptime.text = "${lapData.minute}m ${lapData.sec}s ${lapData.mSec}ms"
         }
     }
 }
