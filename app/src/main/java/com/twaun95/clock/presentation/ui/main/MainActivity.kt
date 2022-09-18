@@ -18,14 +18,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>(R.
     override fun initView() {
         super.initView()
         initViewPager()
-    }
-
-    override fun setObserver() {
-        super.setObserver()
-    }
-
-    override fun setEvent() {
-        super.setEvent()
+        initBottomNavigation()
     }
 
     private fun initViewPager() {
@@ -33,22 +26,27 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>(R.
             isUserInputEnabled = false
             adapter = MainViewPagerAdapter(this@MainActivity)
         }
+    }
 
-        binding.bottomNavigation.setOnItemSelectedListener { page ->
-            when(page.itemId) {
-                R.id.page_alarm -> {
-                    binding.viewPager.setCurrentItem(0, false)
-                    true
+    private fun initBottomNavigation() {
+        binding.bottomNavigation.apply {
+            itemIconTintList = null
+            setOnItemSelectedListener { page ->
+                when(page.itemId) {
+                    R.id.page_alarm -> {
+                        binding.viewPager.setCurrentItem(0, false)
+                        true
+                    }
+                    R.id.page_stop_watch -> {
+                        binding.viewPager.setCurrentItem(1, false)
+                        true
+                    }
+                    R.id.page_timer -> {
+                        binding.viewPager.setCurrentItem(2, false)
+                        true
+                    }
+                    else -> { false }
                 }
-                R.id.page_stop_watch -> {
-                    binding.viewPager.setCurrentItem(1, false)
-                    true
-                }
-                R.id.page_timer -> {
-                    binding.viewPager.setCurrentItem(2, false)
-                    true
-                }
-                else -> { false }
             }
         }
     }
