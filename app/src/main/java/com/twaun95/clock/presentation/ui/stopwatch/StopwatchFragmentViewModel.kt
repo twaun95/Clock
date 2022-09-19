@@ -2,6 +2,7 @@ package com.twaun95.clock.presentation.ui.stopwatch
 
 import com.twaun95.clock.common.MutableNonNullLiveData
 import com.twaun95.core.base.BaseViewModel
+import java.text.DecimalFormat
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -9,12 +10,8 @@ class StopwatchFragmentViewModel : BaseViewModel() {
 
     val state by lazy { MutableNonNullLiveData<StopWatchState>(StopWatchState.IDLE) }
 
-    private var time = 0 // 1000-1초
+    val time by lazy { MutableNonNullLiveData(0) } // 1000-1초
     private var timerTask: Timer? = null
-
-    val min by lazy { MutableNonNullLiveData("0") }
-    val sec by lazy { MutableNonNullLiveData("0") }
-    val mSec by lazy { MutableNonNullLiveData("0") }
 
     val lapList = mutableListOf<Lap>()
 
@@ -26,10 +23,7 @@ class StopwatchFragmentViewModel : BaseViewModel() {
     fun startTimer() {
         state.value = StopWatchState.RUNNING
         timerTask = timer(period = 10){
-            time++
-            min.postValue((time/6000).toString())
-            sec.postValue(((time/100)%60).toString())
-            mSec.postValue((time%100).toString())
+            time.postValue(time.value.plus(1))
         }
     }
 
@@ -40,14 +34,10 @@ class StopwatchFragmentViewModel : BaseViewModel() {
 
     private fun resetTimer() {
         timerTask?.cancel()
-        time = 0
-        min.value = 0.toString()
-        sec.value = 0.toString()
-        mSec.value = 0.toString()
-
+        time.value = 0
         state.value = StopWatchState.IDLE
     }
 
-    fun addLapTime() = lapList.add(0, Lap(lapList.size+1, mSec.value, sec.value, min.value))
+    fun addLapTime() = lapList.add(0, Lap(lapList.size+1, time.value))
     private fun resetLapTime() = lapList.clear()
 }

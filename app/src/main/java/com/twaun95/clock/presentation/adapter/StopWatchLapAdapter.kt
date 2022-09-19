@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.twaun95.clock.databinding.ItemLapBinding
 import com.twaun95.clock.presentation.ui.stopwatch.Lap
 import com.twaun95.clock.presentation.ui.stopwatch.LapDiffUtilCallBack
+import java.text.DecimalFormat
 
 class StopWatchLapAdapter : RecyclerView.Adapter<StopWatchLapAdapter.LapViewHolder>(){
 
@@ -43,8 +44,8 @@ class StopWatchLapAdapter : RecyclerView.Adapter<StopWatchLapAdapter.LapViewHold
         fun bind(
             lapData: Lap
         ) {
+            binding.lapTime = lapData
             binding.tvOrder.text = lapData.order.toString()
-            binding.tvLaptime.text = "${lapData.minute}m ${lapData.sec}s ${lapData.mSec}ms"
         }
     }
 }

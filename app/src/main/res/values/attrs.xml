@@ -5,4 +5,8 @@
         <attr name="textFormat" format="string" />
 
     </declare-styleable>
+
+    <declare-styleable name="StopWatchText">
+        <attr name="time" format="integer"/>
+    </declare-styleable>
 </resources>

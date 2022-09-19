@@ -4,4 +4,6 @@
     <string name="page_alarm">알람</string>
     <string name="page_stop_watch">스톱워치</string>
     <string name="page_timer">타이머</string>
+
+    <string name="timer">%s : %s . %s</string>
 </resources>
