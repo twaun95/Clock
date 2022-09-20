@@ -30,7 +30,7 @@ class StopWatchText : AppCompatTextView {
         ).apply {
             try {
                 this@StopWatchText.time = getInt(R.styleable.StopWatchText_time, 0)
-//                this@StopWatchText.text = timeDivide(time)
+                this@StopWatchText.text = timeDivide(time)
             } finally {
                 recycle()
             }
@@ -39,9 +39,9 @@ class StopWatchText : AppCompatTextView {
 
     private var time: Int
 
-
     fun setTime(inputTime: Int) {
         this.time = inputTime
+        this.text = timeDivide(this.time)
         invalidate()
     }
 
@@ -61,7 +61,6 @@ class StopWatchText : AppCompatTextView {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-//        measureText()
-        canvas.drawText(timeDivide(this.time), 0f, (height / 2) - (paint.descent() + paint.ascent()) / 2, paint)
+//        canvas.drawText(timeDivide(this.time), 0f, (height / 2) - (paint.descent() + paint.ascent()) / 2, paint)
     }
 }

@@ -37,20 +37,6 @@ class StopwatchFragment :
             lapAdapter.update(this.fragmentVM.lapList)
         }
 
-        binding.buttonPlayStop.setOnSingleClickListener {
-            when (this.fragmentVM.state.value) {
-                StopWatchState.IDLE -> {
-                    fragmentVM.startTimer()
-                }
-                StopWatchState.RUNNING -> {
-                    fragmentVM.pauseTimer()
-                }
-                StopWatchState.PAUSE -> {
-                    fragmentVM.startTimer()
-                }
-            }
-        }
-
         binding.buttonLap.setOnSingleClickListener {
             this.fragmentVM.addLapTime()
             lapAdapter.update(this.fragmentVM.lapList)

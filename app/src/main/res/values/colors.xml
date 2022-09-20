@@ -18,4 +18,11 @@
     <color name="mono6">#6E7A8F</color>
     <color name="mono7">#707478</color>
     <color name="mono8">#202020</color>
+
+    <color name="red">#D52222</color>
+    <color name="red_sub">#DC4949</color>
+
+    <color name="blue">#0924B8</color>
+    <color name="blue_sub">#304AD8</color>
+
 </resources>

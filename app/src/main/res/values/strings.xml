@@ -5,5 +5,12 @@
     <string name="page_stop_watch">스톱워치</string>
     <string name="page_timer">타이머</string>
 
-    <string name="timer">%s : %s . %s</string>
+    <string name="timer">%s:%s.%s</string>
+
+    <string name="reset">초기화</string>
+    <string name="lap">기록</string>
+    <string name="start">시작</string>
+    <string name="pause">중지</string>
+    <string name="play">이어서</string>
+
 </resources>
