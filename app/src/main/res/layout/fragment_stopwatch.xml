@@ -25,7 +25,6 @@
                 android:id="@+id/layout_watch"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_margin="20dp"
                 app:layout_constraintBottom_toTopOf="@id/gl_bottom_watch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -71,14 +70,15 @@
                         android:id="@+id/button_reset"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
+                        android:background="@drawable/button_stopwatch_reset"
+                        android:fontFamily="@font/semi_bold"
                         android:text="@string/reset"
                         android:textColor="@color/mono1"
-                        android:fontFamily="@font/semi_bold"
-                        android:background="@drawable/button_stopwatch_reset"
                         android:visibility="@{fragmentVM.state==StopWatchState.PAUSE}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintDimensionRatio="1"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHeight_percent="0.9"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -87,11 +87,11 @@
                         android:id="@+id/button_lap"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:text="@string/lap"
-                        android:fontFamily="@font/semi_bold"
-                        android:textColor="@color/mono1"
                         android:background="@drawable/button_stopwatch_lap"
                         android:enabled="@{fragmentVM.state!=StopWatchState.IDLE}"
+                        android:fontFamily="@font/semi_bold"
+                        android:text="@string/lap"
+                        android:textColor="@color/mono1"
                         android:visibility="@{fragmentVM.state!=StopWatchState.PAUSE}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintDimensionRatio="1"
@@ -113,6 +113,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.9"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/layout_start_reset"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -129,13 +130,29 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gl_top_list">
 
+                <include
+                    android:id="@+id/view_header_lap"
+                    layout="@layout/item_lap_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="@{fragmentVM.state!=StopWatchState.IDLE}"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_lap"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/mono2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    android:overScrollMode="never"
+                    android:scrollbarFadeDuration="0"
+                    android:scrollbarStyle="insideOverlay"
+                    android:scrollbarThumbVertical="@drawable/scrollbar"
+                    android:scrollbars="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_header_lap" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -151,7 +168,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.4" />
+                app:layout_constraintGuide_percent="0.32" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/gl_top_controller"
@@ -172,14 +189,14 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.4" />
+                app:layout_constraintGuide_percent="0.32" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/gl_bottom_list"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.75" />
+                app:layout_constraintGuide_percent="0.78" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>

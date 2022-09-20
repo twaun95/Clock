@@ -23,7 +23,6 @@ class StopwatchFragmentViewModel : BaseViewModel() {
     val lapList = mutableListOf<Lap>()
 
 
-
     fun playOrPause() {
         when (state.value) {
             StopWatchState.IDLE -> {
@@ -68,6 +67,9 @@ class StopwatchFragmentViewModel : BaseViewModel() {
         state.value = StopWatchState.IDLE
     }
 
-    fun addLapTime() = lapList.add(0, Lap(lapList.size+1, time.value))
+    fun addLapTime() {
+        val beforeTime = lapList.firstOrNull()?.fullTime ?: 0
+        lapList.add(0, Lap(lapList.size+1, time.value-beforeTime, time.value))
+    }
     private fun resetLapTime() = lapList.clear()
 }
