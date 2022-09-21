@@ -25,11 +25,11 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:visibility="@{fragmentVM.viewState==TimerViewState.IDLE}"
-                app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
+                app:layout_constraintBottom_toTopOf="@id/guideline_bottom_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gl_top_progress">
+                app:layout_constraintTop_toBottomOf="@id/guideline_top_progress">
 
                 <NumberPicker
                     android:id="@+id/picker_hour"
@@ -75,79 +75,57 @@
                 android:id="@+id/layout_watch"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@color/purple_200"
                 android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
-                app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
+                app:layout_constraintBottom_toTopOf="@id/guideline_bottom_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gl_top_progress">
+                app:layout_constraintTop_toBottomOf="@id/guideline_top_progress">
 
                 <TextView
-                    android:id="@+id/tv_min"
+                    android:id="@+id/text_timer"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:autoSizeTextType="uniform"
                     android:gravity="center"
-                    android:text="@{fragmentVM.hour}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_sec"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_sec"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:autoSizeTextType="uniform"
-                    android:gravity="center"
-                    android:text="@{fragmentVM.minute}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_mSec"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_min"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_mSec"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:autoSizeTextType="uniform"
-                    android:gravity="center"
-                    android:text="@{fragmentVM.sec}"
+                    android:maxLines="1"
+                    android:text="@{@string/format_timer(fragmentVM.hour, fragmentVM.minute, fragmentVM.sec)}"
+                    android:textColor="@color/stopwatch"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_sec"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:text="00:00:00" />
 
-            <ProgressBar
-                android:id="@+id/progressBarCircle"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:indeterminate="false"
-                android:max="@{fragmentVM.max}"
-                android:progress="@{fragmentVM.time}"
-                android:progressDrawable="@drawable/progress_circle"
-                android:rotation="-90"
-                android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
-                app:layout_constraintBottom_toTopOf="@id/gl_bottom_progress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gl_top_progress" />
+                <ProgressBar
+                    android:id="@+id/progressBarCircle"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:indeterminate="false"
+                    android:max="@{fragmentVM.max}"
+                    android:progress="@{fragmentVM.time}"
+                    android:progressDrawable="@drawable/progress_circle"
+                    android:rotation="-90"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_buttons"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/guideline_bottom_buttons"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gl_bottom_progress">
+                app:layout_constraintTop_toBottomOf="@id/guideline_top_buttons">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline_center_horizontal"
@@ -156,59 +134,89 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent=".5" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_cancel"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
+                    android:background="@drawable/button_timer_cancel"
+                    android:fontFamily="@font/semi_bold"
                     android:onClick="@{()->fragmentVM.cancelTimer()}"
-                    android:text="취소"
+                    android:text="@string/reset"
+                    android:textColor="@color/mono6"
+                    android:textSize="25dp"
                     android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="2:1"
                     app:layout_constraintEnd_toStartOf="@id/guideline_center_horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_start"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
-                    android:text="시작"
+                    android:background="@drawable/button_timer_start"
+                    android:fontFamily="@font/semi_bold"
+                    android:text="@string/start"
+                    android:textColor="@color/mono1"
+                    android:textSize="25dp"
                     android:visibility="@{fragmentVM.viewState==TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/guideline_center_horizontal"
+                    app:layout_constraintDimensionRatio="W, 3:1"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_play_stop"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="10dp"
-                    android:background="@{fragmentVM.viewState==TimerViewState.PAUSE ? @drawable/play : fragmentVM.viewState==TimerViewState.RUNNING ? @drawable/ic_launcher_foreground : @drawable/temp}"
+                    android:background="@{fragmentVM.viewState==TimerViewState.PAUSE ? @drawable/button_timer_play : @drawable/button_timer_pause}"
+                    android:fontFamily="@font/semi_bold"
                     android:onClick="@{()->fragmentVM.timerPauseOrPlay()}"
-                    android:text="정지"
+                    android:text="@{fragmentVM.viewState==TimerViewState.PAUSE ? @string/play : @string/pause}"
+                    android:textColor="@color/mono1"
+                    android:textSize="25dp"
+                    android:visibility="@{fragmentVM.viewState!=TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="2:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@id/guideline_center_horizontal"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@drawable/button_timer_play" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_top_progress"
+                android:id="@+id/guideline_top_progress"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.2" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/gl_bottom_progress"
+                android:id="@+id/guideline_bottom_progress"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent=".7" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top_buttons"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom_buttons"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

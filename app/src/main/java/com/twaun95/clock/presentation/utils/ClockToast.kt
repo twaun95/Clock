@@ -18,7 +18,7 @@ object ClockToast {
         binding.toastText.text = message
 
         Toast(context).apply {
-            setGravity(Gravity.BOTTOM or Gravity.CENTER, 0, 16.toPx())
+            setGravity(Gravity.TOP or Gravity.CENTER, 0, 60.toPx())
             duration = toastDuration
             view = binding.root
         }.show()

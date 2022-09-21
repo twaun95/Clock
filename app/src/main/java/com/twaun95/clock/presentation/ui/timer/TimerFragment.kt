@@ -1,11 +1,13 @@
 package com.twaun95.clock.presentation.ui.timer
 
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.view.children
 import com.twaun95.clock.R
 import com.twaun95.clock.databinding.FragmentTimerBinding
 import com.twaun95.clock.presentation.extensions.setOnSingleClickListener
 import com.twaun95.clock.presentation.ui.main.MainActivityViewModel
+import com.twaun95.clock.presentation.utils.ClockToast
 import com.twaun95.core.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,6 +28,10 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
     override fun setEvent() {
         super.setEvent()
         binding.buttonStart.setOnSingleClickListener {
+            if (fragmentVM.time.value<=0) {
+                ClockToast.show(requireContext(), "시간을 선택해주세요!!")
+                return@setOnSingleClickListener
+            }
             fragmentVM.startTimer(binding.pickerHour.value, binding.pickerMinute.value, binding.pickerSec.value)
         }
     }

@@ -9,14 +9,14 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/purple_500"
+        app:cardBackgroundColor="@color/primary"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/purple_200"
+            app:cardBackgroundColor="@color/primary"
             android:layout_margin="2dp"
             app:cardCornerRadius="50dp">
 
@@ -43,6 +43,7 @@
 
                 <ImageView
                     android:id="@+id/ivSample"
+                    android:visibility="gone"
                     app:layout_constraintDimensionRatio="1"
                     app:layout_constraintHeight_percent="0.8"
                     android:layout_width="0dp"

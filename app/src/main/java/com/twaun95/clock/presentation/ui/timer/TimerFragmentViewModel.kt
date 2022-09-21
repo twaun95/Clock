@@ -2,6 +2,7 @@ package com.twaun95.clock.presentation.ui.timer
 
 import androidx.lifecycle.viewModelScope
 import com.twaun95.clock.common.MutableNonNullLiveData
+import com.twaun95.clock.presentation.extensions.toDigitFormat
 import com.twaun95.core.base.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -16,21 +17,25 @@ class TimerFragmentViewModel : BaseViewModel() {
     private var timerTask: Timer? = null
 
     val max by lazy { MutableNonNullLiveData(0) }
-    val hour by lazy { MutableNonNullLiveData("0") }
-    val minute by lazy { MutableNonNullLiveData("0") }
-    val sec by lazy { MutableNonNullLiveData("0") }
+    val hour by lazy { MutableNonNullLiveData("00") }
+    val minute by lazy { MutableNonNullLiveData("00") }
+    val sec by lazy { MutableNonNullLiveData("00") }
 
     fun timerPauseOrPlay() {
-        when(viewState.value) {
+        when (viewState.value) {
             TimerViewState.IDLE -> {}
-            TimerViewState.RUNNING -> { pauseTimer() }
-            TimerViewState.PAUSE -> { playTimer() }
+            TimerViewState.RUNNING -> {
+                pauseTimer()
+            }
+            TimerViewState.PAUSE -> {
+                playTimer()
+            }
         }
     }
 
     fun startTimer(hour: Int, minute: Int, sec: Int) {
-        max.value = hour*360000 + minute*6000 + sec*100
-        setTimer(hour*360000 + minute*6000 + sec*100)
+        max.value = hour * 360000 + minute * 6000 + sec * 100
+        setTimer(hour * 360000 + minute * 6000 + sec * 100)
         playTimer()
     }
 
@@ -46,9 +51,9 @@ class TimerFragmentViewModel : BaseViewModel() {
 
     private fun setTimer(timer: Int) {
         time.value = timer
-        hour.value = (time.value/360000).toString()
-        minute.value = ((time.value/6000) % 60).toString()
-        sec.value = ((time.value%6000) / 100).toString()
+        hour.value = (time.value / 360000).toDigitFormat()
+        minute.value = ((time.value / 6000) % 60).toDigitFormat()
+        sec.value = ((time.value % 6000) / 100).toDigitFormat()
     }
 
     private fun playTimer() {
@@ -56,11 +61,11 @@ class TimerFragmentViewModel : BaseViewModel() {
 
         viewModelScope.launch {
             delay(1000L)
-            timerTask = timer(period = 10){
-                if (time.value<=0) cancel()
-                hour.postValue((time.value/360000).toString())
-                minute.postValue(((time.value/6000) % 60).toString())
-                sec.postValue(((time.value%6000) / 100).toString())
+            timerTask = timer(period = 10) {
+                if (time.value <= 0) cancel()
+                hour.postValue((time.value / 360000).toDigitFormat())
+                minute.postValue(((time.value / 6000) % 60).toDigitFormat())
+                sec.postValue(((time.value % 6000) / 100).toDigitFormat())
                 time.postValue(time.value.minus(1))
             }
         }
