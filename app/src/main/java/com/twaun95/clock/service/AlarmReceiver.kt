@@ -16,20 +16,17 @@ import com.twaun95.clock.common.Logger
 import com.twaun95.clock.presentation.ui.main.MainActivity
 
 class AlarmReceiver : BroadcastReceiver() {
-
     private lateinit var notificationManager : NotificationManager
 
     override fun onReceive(context: Context, intent: Intent) {
         Logger.d("onReceive")
         notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        createNotificationChannel(context)
+        createNotificationChannel()
         deliverNotification(context)
     }
 
-    private fun createNotificationChannel(context: Context) {
+    private fun createNotificationChannel() {
         Logger.d("createNotificationChannel")
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
@@ -43,8 +40,6 @@ class AlarmReceiver : BroadcastReceiver() {
 
             }
 
-            // Register the channel with the system
-//            NotificationManagerCompat.from(context).createNotificationChannel(channel)
             notificationManager.createNotificationChannel(channel)
         }
     }
@@ -53,23 +48,23 @@ class AlarmReceiver : BroadcastReceiver() {
     private fun deliverNotification(context: Context) {
         Logger.d("deliverNotification")
 
-//        val contentIntent = Intent(context, MainActivity::class.java)
-//        val contentPendingIntent = PendingIntent.getActivity(
-//            context,
-//            NOTIFICATION_ID,
-//            contentIntent,
-//            PendingIntent.FLAG_UPDATE_CURRENT
-//        )
+        val contentIntent = Intent(context, MainActivity::class.java)
+        val contentPendingIntent = PendingIntent.getActivity(
+            context,
+            NOTIFICATION_ID,
+            contentIntent,
+            PendingIntent.FLAG_MUTABLE
+        )
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setContentTitle("title")
-            .setContentText("content")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle("알람")
+            .setContentText("운동할 시간이에요!!")
+            .setSmallIcon(R.drawable.alarm_default)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//            .setContentIntent(contentPendingIntent)
+            .setContentIntent(contentPendingIntent)
 
-//        NotificationManagerCompat.from(context).notify(NOTIFICATION_ID, builder.build())
         notificationManager.notify(NOTIFICATION_ID, builder.build())
+
     }
 
     companion object {

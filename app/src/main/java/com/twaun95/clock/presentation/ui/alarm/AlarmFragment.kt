@@ -8,6 +8,7 @@ import com.twaun95.clock.common.Logger
 import com.twaun95.clock.databinding.FragmentAlarmBinding
 import com.twaun95.clock.presentation.extensions.setOnSingleClickListener
 import com.twaun95.clock.presentation.ui.main.MainActivityViewModel
+import com.twaun95.clock.presentation.utils.ClockToast
 import com.twaun95.clock.service.AlarmHandler
 import com.twaun95.clock.service.AlarmReceiver
 import com.twaun95.core.base.BaseFragment
@@ -34,8 +35,7 @@ class AlarmFragment : BaseFragment<FragmentAlarmBinding, AlarmFragmentViewModel,
         super.setEvent()
 
         binding.buttonRegister.setOnSingleClickListener {
-            Logger.d(binding.timePicker.hour)
-            Logger.d(binding.timePicker.minute)
+            ClockToast.show(requireContext(), "푸시 알람(${binding.timePicker.hour}:${binding.timePicker.minute})이 등록되었습니다.")
             alarmHandler.setAlarm(binding.timePicker.hour, binding.timePicker.minute)
         }
     }
