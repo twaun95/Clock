@@ -90,7 +90,7 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:text="@{@string/format_timer(fragmentVM.hour, fragmentVM.minute, fragmentVM.sec)}"
-                    android:textColor="@color/stopwatch"
+                    android:textColor="@color/black_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -138,7 +138,6 @@
                     android:id="@+id/button_cancel"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_margin="10dp"
                     android:background="@drawable/button_timer_cancel"
                     android:fontFamily="@font/semi_bold"
                     android:onClick="@{()->fragmentVM.cancelTimer()}"
@@ -156,11 +155,10 @@
                     android:id="@+id/button_start"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_margin="10dp"
                     android:background="@drawable/button_timer_start"
                     android:fontFamily="@font/semi_bold"
                     android:text="@string/start"
-                    android:textColor="@color/mono1"
+                    android:textColor="@color/primary"
                     android:textSize="25dp"
                     android:visibility="@{fragmentVM.viewState==TimerViewState.IDLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -173,7 +171,6 @@
                     android:id="@+id/button_play_stop"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_margin="10dp"
                     android:background="@{fragmentVM.viewState==TimerViewState.PAUSE ? @drawable/button_timer_play : @drawable/button_timer_pause}"
                     android:fontFamily="@font/semi_bold"
                     android:onClick="@{()->fragmentVM.timerPauseOrPlay()}"
@@ -209,7 +206,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.75" />
+                app:layout_constraintGuide_percent="0.8" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_bottom_buttons"

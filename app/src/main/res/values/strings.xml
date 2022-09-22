@@ -8,6 +8,8 @@
     <string name="format_stopwatch">%s:%s.%s</string>
     <string name="format_timer">%s:%s:%s</string>
 
+    <string name="alarm_register">알람 등록</string>
+    <string name="alarm_cancel">알람 취소</string>
 
     <string name="reset">초기화</string>
     <string name="lap">기록</string>
