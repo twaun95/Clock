@@ -28,7 +28,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
     override fun setEvent() {
         super.setEvent()
         binding.buttonStart.setOnSingleClickListener {
-            if (fragmentVM.time.value<=0) {
+            if (binding.pickerHour.value + binding.pickerMinute.value +binding.pickerSec.value<=0) {
                 ClockToast.show(requireContext(), "시간을 선택해주세요!!")
                 return@setOnSingleClickListener
             }
