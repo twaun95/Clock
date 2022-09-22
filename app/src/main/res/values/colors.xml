@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
 
-    <color name="primary">#4259D3</color>
+    <color name="primary">#4760E6</color>
 
     <color name="mono1">#FFFFFF</color>
     <color name="mono2">#F1F4F8</color>
@@ -22,15 +22,19 @@
 
     <color name="red">#D52222</color>
     <color name="red_sub">#DC4949</color>
+    <color name="red_light">#ED4040</color>
+    <color name="red_light_sub">#F16565</color>
 
     <color name="blue">#304AD8</color>
     <color name="blue_sub">#4760E6</color>
+    <color name="blue_light">#6076ED</color>
+    <color name="blue_light_sub">#6D83F6</color>
 
-    <color name="reset">#D86530</color>
-    <color name="reset_sub">#E16E39</color>
-    <color name="reset_sub2">#E16E39</color>
+    <color name="orange">#DD6E3A</color>
+    <color name="orange_sub">#E47845</color>
+    <color name="orange_light">#ED814F</color>
+    <color name="orange_light_sub">#EA8B5F</color>
 
-
-    <color name="stopwatch">#5E5D5D</color>
+    <color name="black_light">#5E5D5D</color>
 
 </resources>

@@ -2,17 +2,17 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners android:radius="50dp"/>
-            <solid android:color="@color/blue_sub"/>
-            <stroke android:color="@color/mono4" android:width="6dp"/>
+            <corners android:radius="50dp" />
+            <solid android:color="@color/blue_sub" />
+            <stroke android:width="6dp" android:color="@color/blue_light_sub" />
         </shape>
     </item>
 
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="50dp"/>
-            <solid android:color="@color/blue"/>
-            <stroke android:color="@color/mono5" android:width="4dp"/>
+            <corners android:radius="50dp" />
+            <solid android:color="@color/blue" />
+            <stroke android:width="4dp" android:color="@color/blue_light" />
         </shape>
     </item>
 </selector>
