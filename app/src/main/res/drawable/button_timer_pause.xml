@@ -3,8 +3,8 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <corners android:radius="50dp" />
-            <solid android:color="@color/red_sub" />
-            <stroke android:color="@color/red_light_sub" android:width="6dp"/>
+            <solid android:color="@color/red_deep" />
+<!--            <stroke android:color="@color/red_light_sub" android:width="6dp"/>-->
         </shape>
     </item>
 
@@ -12,7 +12,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="50dp" />
             <solid android:color="@color/red" />
-            <stroke android:color="@color/red_light" android:width="4dp"/>
+<!--            <stroke android:color="@color/red_light" android:width="4dp"/>-->
         </shape>
     </item>
 </selector>

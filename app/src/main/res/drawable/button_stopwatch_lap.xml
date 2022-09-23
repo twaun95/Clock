@@ -7,6 +7,12 @@
         </shape>
     </item>
 
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/mono5"/>
+        </shape>
+    </item>
+
     <item>
         <shape android:shape="oval">
             <solid android:color="@color/mono4"/>

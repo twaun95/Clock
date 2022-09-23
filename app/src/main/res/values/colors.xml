@@ -22,16 +22,23 @@
 
     <color name="red">#D52222</color>
     <color name="red_sub">#DC4949</color>
+    <color name="red_deep">#C51B1B</color>
+    <color name="red_deep_sub">#DC3737</color>
     <color name="red_light">#ED4040</color>
     <color name="red_light_sub">#F16565</color>
 
+
     <color name="blue">#304AD8</color>
     <color name="blue_sub">#4760E6</color>
+    <color name="blue_deep">#233CC5</color>
+    <color name="blue_deep_sub">#5065D6</color>
     <color name="blue_light">#6076ED</color>
     <color name="blue_light_sub">#6D83F6</color>
 
     <color name="orange">#DD6E3A</color>
     <color name="orange_sub">#E47845</color>
+    <color name="orange_deep">#CC6230</color>
+    <color name="orange_deep_sub">#DD7545</color>
     <color name="orange_light">#ED814F</color>
     <color name="orange_light_sub">#EA8B5F</color>
 
