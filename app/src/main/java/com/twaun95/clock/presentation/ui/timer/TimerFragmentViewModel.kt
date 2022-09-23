@@ -59,7 +59,10 @@ class TimerFragmentViewModel : BaseViewModel() {
     private fun playTimer() {
         viewState.value = TimerViewState.RUNNING
         timerTask = timer(period = 10) {
-            if (time.value <= 0) cancel()
+            if (time.value <= 0) {
+                cancel()
+                viewState.postValue(TimerViewState.IDLE)
+            }
             hour.postValue((time.value / 360000).toDigitFormat())
             minute.postValue(((time.value / 6000) % 60).toDigitFormat())
             sec.postValue(((time.value % 6000) / 100).toDigitFormat())

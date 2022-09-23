@@ -15,18 +15,16 @@ import com.twaun95.clock.R
 import com.twaun95.clock.common.Logger
 import com.twaun95.clock.presentation.ui.main.MainActivity
 
-class AlarmReceiver : BroadcastReceiver() {
+class PushAlarmReceiver : BroadcastReceiver() {
     private lateinit var notificationManager : NotificationManager
 
     override fun onReceive(context: Context, intent: Intent) {
-        Logger.d("onReceive")
         notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         createNotificationChannel()
-        deliverNotification(context)
+        deliverNotification(context, intent.getStringExtra("message").toString())
     }
 
     private fun createNotificationChannel() {
-        Logger.d("createNotificationChannel")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
@@ -37,17 +35,13 @@ class AlarmReceiver : BroadcastReceiver() {
                 enableLights(true)
                 lightColor = Color.BLACK
                 enableVibration(true)
-
             }
 
             notificationManager.createNotificationChannel(channel)
         }
     }
 
-
-    private fun deliverNotification(context: Context) {
-        Logger.d("deliverNotification")
-
+    private fun deliverNotification(context: Context, message: String) {
         val contentIntent = Intent(context, MainActivity::class.java)
         val contentPendingIntent = PendingIntent.getActivity(
             context,
@@ -58,13 +52,12 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle("알람")
-            .setContentText("운동할 시간이에요!!")
+            .setContentText(message)
             .setSmallIcon(R.drawable.alarm_default)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(contentPendingIntent)
 
         notificationManager.notify(NOTIFICATION_ID, builder.build())
-
     }
 
     companion object {
