@@ -34,21 +34,9 @@ class AlarmFragment : BaseFragment<FragmentAlarmBinding, AlarmFragmentViewModel,
         super.setEvent()
 
         binding.buttonRegister.setOnSingleClickListener {
-
             ClockToast.show(requireContext(), "푸시 알람(${binding.timePicker.hour}:${binding.timePicker.minute})이 등록되었습니다.")
             alarmHandler.setAlarm(binding.timePicker.hour, binding.timePicker.minute, "메세지 테스트.")
             alarmHandler.isRegistered()
-//            val ringtoneUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
-//            Logger.d("ringtone: $ringtoneUri")
-//            val ringtone: Ringtone = RingtoneManager.getRingtone(requireContext(), ringtoneUri)
-//            ringtone.play()
-//            RingtoneManager(requireContext()).cursor.run {
-//                Logger.d("Ringtones: ")
-//                while(moveToNext()) {
-//                    Logger.d("${getString(RingtoneManager.TITLE_COLUMN_INDEX)} (${getString(
-//                        RingtoneManager.URI_COLUMN_INDEX)}/${getString(RingtoneManager.ID_COLUMN_INDEX)})\n")
-//                }
-//            }
         }
     }
 
