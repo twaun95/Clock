@@ -26,7 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>(R.
             itemIconTintList = null
             setOnItemSelectedListener { page ->
                 when(page.itemId) {
-                    R.id.page_alarm -> {
+                    R.id.page_timer -> {
                         binding.viewPager.setCurrentItem(0, false)
                         true
                     }
@@ -34,7 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainActivityViewModel>(R.
                         binding.viewPager.setCurrentItem(1, false)
                         true
                     }
-                    R.id.page_timer -> {
+                    R.id.page_alarm -> {
                         binding.viewPager.setCurrentItem(2, false)
                         true
                     }

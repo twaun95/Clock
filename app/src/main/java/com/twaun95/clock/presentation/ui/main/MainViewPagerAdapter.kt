@@ -9,24 +9,13 @@ import com.twaun95.clock.presentation.ui.timer.TimerFragment
 
 class MainViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
 
-//    private val pageList = mutableListOf<Fragment>()
-//
-//    override fun getItemCount(): Int {
-//        return pageList.size
-//    }
-//
-//    override fun createFragment(position: Int): Fragment {
-//        return pageList[position]
-//    }
-//
-//    fun addFragment(newFragment: Fragment) { pageList.add(newFragment) }
-override fun getItemCount(): Int = 3
+    override fun getItemCount(): Int = 3
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> AlarmFragment.getInstance()
+            0 -> TimerFragment.getInstance()
             1 -> StopwatchFragment.getInstance()
-            else -> TimerFragment.getInstance()
+            else -> AlarmFragment.getInstance()
         }
     }
 }

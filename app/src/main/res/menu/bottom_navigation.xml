@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_alarm"
+        android:id="@+id/page_timer"
         android:enabled="true"
-        android:icon="@drawable/navigation_alarm"
-        android:title="@string/page_alarm"/>
+        android:icon="@drawable/navigation_timer"
+        android:title="@string/page_timer"/>
     <item
         android:id="@+id/page_stop_watch"
         android:enabled="true"
         android:icon="@drawable/navigation_stopwatch"
         android:title="@string/page_stop_watch"/>
     <item
-        android:id="@+id/page_timer"
+        android:id="@+id/page_alarm"
         android:enabled="true"
-        android:icon="@drawable/navigation_timer"
-        android:title="@string/page_timer"/>
+        android:icon="@drawable/navigation_alarm"
+        android:title="@string/page_alarm"/>
 </menu>
