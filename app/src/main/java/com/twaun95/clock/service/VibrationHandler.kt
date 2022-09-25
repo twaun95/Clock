@@ -26,8 +26,8 @@ class VibrationHandler(val context: Context) {
             (vibrator as VibratorManager).vibrate(combinedVibration)
         } else {
 //            val effect = VibrationEffect.createOneShot(500L, VibrationEffect.DEFAULT_AMPLITUDE)
-            val timings = longArrayOf(600, 300, 200, 300, 200, 300)
-            val amplitudes = intArrayOf(0, 100, 0, 100, 0, 100)
+            val timings = longArrayOf(600, 300, 200, 300, 200, 300, 200, 300)
+            val amplitudes = intArrayOf(0, 100, 0, 100, 0, 100, 0, 100)
             val effect = VibrationEffect.createWaveform(timings, amplitudes, 0)
             (vibrator as Vibrator).vibrate(effect)
         }
