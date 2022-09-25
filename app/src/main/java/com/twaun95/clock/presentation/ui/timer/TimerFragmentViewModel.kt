@@ -3,13 +3,16 @@ package com.twaun95.clock.presentation.ui.timer
 import androidx.lifecycle.viewModelScope
 import com.twaun95.clock.common.MutableNonNullLiveData
 import com.twaun95.clock.presentation.extensions.toDigitFormat
+import com.twaun95.clock.service.VibrationHandler
 import com.twaun95.core.base.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.concurrent.timer
 
-class TimerFragmentViewModel : BaseViewModel() {
+class TimerFragmentViewModel(
+    private val vibrationHandler: VibrationHandler
+) : BaseViewModel() {
 
     val viewState by lazy { MutableNonNullLiveData(TimerViewState.IDLE) }
 
@@ -30,6 +33,7 @@ class TimerFragmentViewModel : BaseViewModel() {
             TimerViewState.PAUSE -> {
                 playTimer()
             }
+            TimerViewState.FINISHED -> {}
         }
     }
 
@@ -61,7 +65,8 @@ class TimerFragmentViewModel : BaseViewModel() {
         timerTask = timer(period = 10) {
             if (time.value <= 0) {
                 cancel()
-                viewState.postValue(TimerViewState.IDLE)
+                viewState.postValue(TimerViewState.FINISHED)
+                finishTimer()
             }
             hour.postValue((time.value / 360000).toDigitFormat())
             minute.postValue(((time.value / 6000) % 60).toDigitFormat())
@@ -73,5 +78,14 @@ class TimerFragmentViewModel : BaseViewModel() {
     private fun pauseTimer() {
         viewState.value = TimerViewState.PAUSE
         timerTask?.cancel()
+    }
+
+    private fun finishTimer() {
+        vibrationHandler.run()
+    }
+
+    fun reset() {
+        viewState.value = TimerViewState.IDLE
+        vibrationHandler.cancel()
     }
 }

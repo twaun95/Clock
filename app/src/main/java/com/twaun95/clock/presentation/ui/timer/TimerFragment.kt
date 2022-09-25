@@ -33,7 +33,7 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
         super.setEvent()
         binding.buttonStart.setOnSingleClickListener {
             if (binding.pickerHour.value + binding.pickerMinute.value +binding.pickerSec.value<=0) {
-                vibrationHandler.run()
+//                vibrationHandler.run()
                 //            val ringtoneUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
 //            Logger.d("ringtone: $ringtoneUri")
 //            val ringtone: Ringtone = RingtoneManager.getRingtone(requireContext(), ringtoneUri)

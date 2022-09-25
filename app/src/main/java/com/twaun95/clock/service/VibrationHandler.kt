@@ -1,6 +1,7 @@
 package com.twaun95.clock.service
 
 import android.content.Context
+import android.media.AudioAttributes
 import android.os.*
 
 class VibrationHandler(val context: Context) {
@@ -17,16 +18,17 @@ class VibrationHandler(val context: Context) {
 //            val effect = VibrationEffect.createOneShot(500L, VibrationEffect.DEFAULT_AMPLITUDE)
 //            val combined = CombinedVibration.createParallel(effect)
 
-            val timing = longArrayOf(100, 200, 100, 200, 100, 200)
-            val vibrationEffect = VibrationEffect.createWaveform(timing, 0)
+            val timings = longArrayOf(100, 200, 100, 200, 100, 200)
+            val amplitudes = intArrayOf(0, 50, 0, 100, 0, 200)
+            val vibrationEffect = VibrationEffect.createWaveform(timings, amplitudes,0)
             val combinedVibration = CombinedVibration.createParallel(vibrationEffect)
 
             (vibrator as VibratorManager).vibrate(combinedVibration)
         } else {
 //            val effect = VibrationEffect.createOneShot(500L, VibrationEffect.DEFAULT_AMPLITUDE)
-            val timing = longArrayOf(100, 200, 100, 200, 100, 200)
+            val timings = longArrayOf(100, 200, 100, 200, 100, 200)
             val amplitudes = intArrayOf(0, 50, 0, 100, 0, 200)
-            val effect = VibrationEffect.createWaveform(timing, amplitudes, 0)
+            val effect = VibrationEffect.createWaveform(timings, amplitudes, 0)
             (vibrator as Vibrator).vibrate(effect)
         }
     }

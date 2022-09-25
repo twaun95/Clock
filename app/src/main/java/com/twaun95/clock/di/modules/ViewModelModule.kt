@@ -15,6 +15,6 @@ object ViewModelModule : KoinModule {
             viewModel { MainActivityViewModel() }
             viewModel { AlarmFragmentViewModel() }
             viewModel { StopwatchFragmentViewModel() }
-            viewModel { TimerFragmentViewModel() }
+            viewModel { TimerFragmentViewModel(get()) }
         }
 }
