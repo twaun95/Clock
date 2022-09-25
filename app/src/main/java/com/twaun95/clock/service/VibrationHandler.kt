@@ -18,16 +18,16 @@ class VibrationHandler(val context: Context) {
 //            val effect = VibrationEffect.createOneShot(500L, VibrationEffect.DEFAULT_AMPLITUDE)
 //            val combined = CombinedVibration.createParallel(effect)
 
-            val timings = longArrayOf(100, 200, 100, 200, 100, 200)
-            val amplitudes = intArrayOf(0, 50, 0, 100, 0, 200)
+            val timings = longArrayOf(600, 300, 200, 300, 200, 300, 200, 300)
+            val amplitudes = intArrayOf(0, 100, 0, 100, 0, 100, 0, 100)
             val vibrationEffect = VibrationEffect.createWaveform(timings, amplitudes,0)
             val combinedVibration = CombinedVibration.createParallel(vibrationEffect)
 
             (vibrator as VibratorManager).vibrate(combinedVibration)
         } else {
 //            val effect = VibrationEffect.createOneShot(500L, VibrationEffect.DEFAULT_AMPLITUDE)
-            val timings = longArrayOf(100, 200, 100, 200, 100, 200)
-            val amplitudes = intArrayOf(0, 50, 0, 100, 0, 200)
+            val timings = longArrayOf(600, 300, 200, 300, 200, 300)
+            val amplitudes = intArrayOf(0, 100, 0, 100, 0, 100)
             val effect = VibrationEffect.createWaveform(timings, amplitudes, 0)
             (vibrator as Vibrator).vibrate(effect)
         }
