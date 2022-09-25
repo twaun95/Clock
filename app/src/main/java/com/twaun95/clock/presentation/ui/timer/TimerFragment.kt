@@ -20,8 +20,6 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
     override val activityVM: MainActivityViewModel by sharedViewModel()
     override val fragmentVM: TimerFragmentViewModel by viewModel()
 
-    val vibrationHandler by inject<VibrationHandler>()
-
     override fun initView() {
         super.initView()
 
@@ -33,19 +31,6 @@ class TimerFragment : BaseFragment<FragmentTimerBinding, TimerFragmentViewModel,
         super.setEvent()
         binding.buttonStart.setOnSingleClickListener {
             if (binding.pickerHour.value + binding.pickerMinute.value +binding.pickerSec.value<=0) {
-//                vibrationHandler.run()
-                //            val ringtoneUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
-//            Logger.d("ringtone: $ringtoneUri")
-//            val ringtone: Ringtone = RingtoneManager.getRingtone(requireContext(), ringtoneUri)
-//            ringtone.play()
-//            RingtoneManager(requireContext()).cursor.run {
-//                Logger.d("Ringtones: ")
-//                while(moveToNext()) {
-//                    Logger.d("${getString(RingtoneManager.TITLE_COLUMN_INDEX)} (${getString(
-//                        RingtoneManager.URI_COLUMN_INDEX)}/${getString(RingtoneManager.ID_COLUMN_INDEX)})\n")
-//                }
-//            }
-
                 ClockToast.show(requireContext(), "시간을 선택해주세요!!")
                 return@setOnSingleClickListener
             }
