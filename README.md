@@ -36,3 +36,12 @@ FCM은 서버와 연동해서 사용하는 것이 좋다고 판단.
 - 시적/정지
 
 
+<pre>
+app
+  &boxVr;&boxH; presentation
+  &boxVr;&boxH;&boxh; presentation
+  &boxUr;&boxH; presentation
+  &boxUr;&boxH;&boxh; presentation
+  
+  &boxV;
+</pre>
