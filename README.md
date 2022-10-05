@@ -35,13 +35,3 @@ FCM은 서버와 연동해서 사용하는 것이 좋다고 판단.
 - 시간(분/초) 선택 -> 설정 시간이 다되면 알람 소리 울리기
 - 시적/정지
 
-
-<pre>
-app
-  &boxVr;&boxH; presentation
-  &boxVr;&boxH;&boxh; presentation
-  &boxUr;&boxH; presentation
-  &boxUr;&boxH;&boxh; presentation
-  
-  &boxV;
-</pre>
