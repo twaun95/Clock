@@ -1,5 +1,6 @@
 # Clock
 
+<img src="https://user-images.githubusercontent.com/43190509/194365660-8981c56d-7340-4696-83b5-b9f81aba9f31.gif" width="200" height="400"/>
 
 # Description
 
