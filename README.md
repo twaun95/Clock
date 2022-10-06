@@ -7,6 +7,35 @@
 
 # Structure
 
+<pre>
+.app/
+  &boxvr;&boxh;&boxh; common
+  &boxur;&boxh;&boxh; di (koin)
+  &boxv;      &boxvr;&boxh;&boxh; HandlerModule
+  &boxv;      &boxur;&boxh;&boxh; ViewModelModule
+  &boxur;&boxh;&boxh; handler
+  &boxv;      &boxvr;&boxh;&boxh; PushAlarmHandler
+  &boxv;      &boxvr;&boxh;&boxh; PushAlarmReceiver
+  &boxv;      &boxur;&boxh;&boxh; VibrationHandler
+  &boxur;&boxh;&boxh; presentation
+        &boxvr;&boxh;&boxh; adapter
+        &boxv;      &boxvr;&boxh;&boxh; BindingAdapter
+        &boxv;      &boxur;&boxh;&boxh; RecyclerViewAdapter
+        &boxvr;&boxh;&boxh; extensions
+        &boxvr;&boxh;&boxh; models
+        &boxur;&boxh;&boxh; utils
+        &boxv;      &boxur;&boxh;&boxh; Toast
+        &boxur;&boxh;&boxh; view (Custom View)
+        &boxv;      &boxur;&boxh;&boxh; StopWatchText
+        &boxur;&boxh;&boxh; ui
+              &boxvr;&boxh;&boxh; main (Activity, ViewModel)
+              &boxvr;&boxh;&boxh; alarm (Fragment, ViewModel)
+              &boxvr;&boxh;&boxh; stopwatch (Fragment, ViewModel)
+              &boxur;&boxh;&boxh; timer (Fragment, ViewModel)
+  
+</pre>
+
+
 # Skill
 - MVVM
 - Koin
