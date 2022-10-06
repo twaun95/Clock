@@ -36,7 +36,7 @@
 </pre>
 
 
-# Skill
+# Skills
 - MVVM
 - Koin
 - Navigation
