@@ -2,7 +2,7 @@
 
 여러 기능의 시계들(타이머, 스톱워치, 푸시알람)을 사용해보세요.
 
-### 타이머
+## 타이머
 
 <img src="https://user-images.githubusercontent.com/43190509/194486005-78bcf435-8109-4639-a6d3-4446d4b674fa.gif" width="200" height="400"/>
 
@@ -12,7 +12,7 @@
 3. 시간이 종료되면 진동이 울립니다.
 4. 확인하면 진동이 멈춥니다.
 
-### 스톱워치
+## 스톱워치
 
 <img src="https://user-images.githubusercontent.com/43190509/194495468-12f12889-1c77-4e4d-8a22-f6f4cc0bd8f0.gif" width="200" height="400"/>
 
@@ -22,7 +22,7 @@
 3. 시간 진행 중에는 기록을 할 수 있고 화면에서 기록 시간을 확인할 수 있습니다.
 4. 시간 중지 중에는 초기화를 해서 시간과 기록을 모두 처음으로 되돌립니다.
 
-### 푸시알람
+## 푸시알람
 
 <img src="https://user-images.githubusercontent.com/43190509/194491902-5904a78b-1243-4b47-94c9-d57b20e8e81f.gif" width="200" height="400"/>
 
