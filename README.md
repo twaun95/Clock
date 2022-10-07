@@ -1,12 +1,11 @@
 # Clock
 
-<img src="https://user-images.githubusercontent.com/43190509/194365660-8981c56d-7340-4696-83b5-b9f81aba9f31.gif" width="200" height="400"/>
-
-# Description
-
 여러 기능 시계(타이머, 스톱워치, 푸시알람)를 사용해보세요.
 
 ### 타이머
+
+<img src="https://user-images.githubusercontent.com/43190509/194486005-78bcf435-8109-4639-a6d3-4446d4b674fa.gif" width="200" height="400"/>
+
 사용 방법
 1. 타이머 시간을 선택하세요.
 2. 시작하면 설정한 시간만큼 타이머가 작동합니다.
