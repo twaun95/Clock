@@ -1,6 +1,6 @@
 # Clock
 
-여러 기능 시계(타이머, 스톱워치, 푸시알람)를 사용해보세요.
+여러 기능의 시계들(타이머, 스톱워치, 푸시알람)을 사용해보세요.
 
 ### 타이머
 
@@ -66,34 +66,43 @@
 # Skills
 - MVVM
 - Koin
-- Navigation
 - BroadCast
+- DataBinding
+- LiveData
+- Vibrator
+
+
 - AlarmManager
-- Notification
+- NotificationManager
 - Timer
-- TimerPicker, NumberPicker
-- ProgressBar
-- BindingAdapter
+- ProgressBar, BottomNavigation, TimePicker
 
-### 1. 알람(푸시알람)
 
-- 알람 시간 선택 (TimerPicker)
-- FCM(FireBase Cloud Messaging -> Notification & AlamManager 로 변경
+### 타이머
+- 타이머 시간 선택 : NumberPicker
+- 타이머 시각화 : Custom ProgressBar
+- 시간 컨트롤 : Timer
+- 타이머 종료 시 : Lottie & Vibrator
 
-FCM은 서버와 연동해서 사용하는 것이 좋다고 판단.
-알람 등록은 서버가 아닌 로컬에서 관리해야 시간 동기화가 될 것 같다..
+### 스톱워치
+- 시간 컨트롤 : Timer
+- 구간 기록 : RecyclerView
+- 시작 / 정지 / 기록 / 초기화
 
-### 2. 스톱워치
-- Timer
-- 시작/정지
-- 초기화
-- 랩 기록(Recycler View)
+### 푸시알람
 
-### 3. 타이머
-- AlarmManager
-- 타이머 시각화(Progress bar)
-- 시간(분/초) 선택 -> 설정 시간이 다되면 알람 소리 울리기
-- 시적/정지
+- 알람 시간 선택 : TimerPicker
+- 알림 안내 : Custom Toast
+- 알람 : AlarmManager & NotificationManager
+
++)
+처음에는 FCM(Firebase Cloud Messaging)을 사용하려 했으나 정확한 시간에 알림을 받을 필요가 있기 때문에 
+서버를 통하는 FCM 보다 로컬에 시간을 등록하는 AlarmManager 가 더 적합하다고 생각했다.
+
 
 
 # Environment
+- Android Studio Chipmunk 2021.2.1
+- minSdkVersion 29
+- targetSdkVersion 32
+- Test Device - Galaxy S10e
