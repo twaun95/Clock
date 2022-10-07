@@ -1,4 +1,4 @@
-package com.twaun95.clock.presentation.ui.stopwatch
+package com.twaun95.clock.presentation.models
 
 enum class StopWatchState {
     IDLE,

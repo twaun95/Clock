@@ -7,7 +7,7 @@
 
         <variable
             name="lapTime"
-            type="com.twaun95.clock.presentation.ui.stopwatch.Lap" />
+            type="com.twaun95.clock.presentation.models.Lap" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

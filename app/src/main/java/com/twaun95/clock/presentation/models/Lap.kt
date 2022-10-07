@@ -1,4 +1,4 @@
-package com.twaun95.clock.presentation.ui.stopwatch
+package com.twaun95.clock.presentation.models
 
 data class Lap(
     val order: Int,

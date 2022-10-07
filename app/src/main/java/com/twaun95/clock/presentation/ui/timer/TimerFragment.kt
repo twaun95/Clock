@@ -1,16 +1,13 @@
 package com.twaun95.clock.presentation.ui.timer
 
 import android.widget.EditText
-import android.widget.Toast
 import androidx.core.view.children
 import com.twaun95.clock.R
 import com.twaun95.clock.databinding.FragmentTimerBinding
 import com.twaun95.clock.presentation.extensions.setOnSingleClickListener
 import com.twaun95.clock.presentation.ui.main.MainActivityViewModel
 import com.twaun95.clock.presentation.utils.ClockToast
-import com.twaun95.clock.service.VibrationHandler
 import com.twaun95.core.base.BaseFragment
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

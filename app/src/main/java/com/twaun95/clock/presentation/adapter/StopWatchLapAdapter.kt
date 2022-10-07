@@ -1,14 +1,12 @@
 package com.twaun95.clock.presentation.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.twaun95.clock.databinding.ItemLapBinding
-import com.twaun95.clock.presentation.ui.stopwatch.Lap
+import com.twaun95.clock.presentation.models.Lap
 import com.twaun95.clock.presentation.ui.stopwatch.LapDiffUtilCallBack
-import java.text.DecimalFormat
 
 class StopWatchLapAdapter : RecyclerView.Adapter<StopWatchLapAdapter.LapViewHolder>(){
 

@@ -29,7 +29,7 @@
 <!--        </service>-->
         
         <receiver
-            android:name=".service.PushAlarmReceiver"
+            android:name=".handler.PushAlarmReceiver"
             android:exported="false">
         </receiver>
 

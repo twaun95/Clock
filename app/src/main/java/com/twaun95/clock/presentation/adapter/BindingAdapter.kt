@@ -1,11 +1,9 @@
 package com.twaun95.clock.presentation.adapter
 
 import android.view.View
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.twaun95.clock.presentation.ui.stopwatch.Lap
-import com.twaun95.clock.presentation.ui.view.StopWatchText
+import com.twaun95.clock.presentation.models.Lap
 
 
 @BindingAdapter("bind_lapTimeList")

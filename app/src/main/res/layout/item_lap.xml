@@ -7,7 +7,7 @@
 
         <variable
             name="lapTime"
-            type="com.twaun95.clock.presentation.ui.stopwatch.Lap" />
+            type="com.twaun95.clock.presentation.models.Lap" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,7 +80,7 @@
                 app:layout_constraintRight_toLeftOf="@id/guideline_order_right"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.twaun95.clock.presentation.ui.view.StopWatchText
+            <com.twaun95.clock.presentation.view.StopWatchText
                 android:id="@+id/tv_laptime"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -94,7 +94,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:time="@{lapTime.lapTime}" />
 
-            <com.twaun95.clock.presentation.ui.view.StopWatchText
+            <com.twaun95.clock.presentation.view.StopWatchText
                 android:id="@+id/tv_fulltime"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

@@ -1,15 +1,11 @@
 package com.twaun95.clock.presentation.ui.alarm
 
-import android.media.Ringtone
-import android.media.RingtoneManager
-import android.net.Uri
 import com.twaun95.clock.R
-import com.twaun95.clock.common.Logger
 import com.twaun95.clock.databinding.FragmentAlarmBinding
 import com.twaun95.clock.presentation.extensions.setOnSingleClickListener
 import com.twaun95.clock.presentation.ui.main.MainActivityViewModel
 import com.twaun95.clock.presentation.utils.ClockToast
-import com.twaun95.clock.service.AlarmHandler
+import com.twaun95.clock.handler.PushAlarmHandler
 import com.twaun95.core.base.BaseFragment
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -20,7 +16,7 @@ class AlarmFragment : BaseFragment<FragmentAlarmBinding, AlarmFragmentViewModel,
     override val activityVM: MainActivityViewModel by sharedViewModel()
     override val fragmentVM: AlarmFragmentViewModel by viewModel()
 
-    private val alarmHandler by inject<AlarmHandler>()
+    private val alarmHandler by inject<PushAlarmHandler>()
 
     override fun initView() {
         super.initView()

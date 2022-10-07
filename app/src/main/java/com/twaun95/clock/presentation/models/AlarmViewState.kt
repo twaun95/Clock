@@ -1,4 +1,4 @@
-package com.twaun95.clock.presentation.ui.alarm
+package com.twaun95.clock.presentation.models
 
 enum class AlarmViewState {
     IDLE,

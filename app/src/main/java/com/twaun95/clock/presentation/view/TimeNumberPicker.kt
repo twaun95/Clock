@@ -1,4 +1,4 @@
-package com.twaun95.clock.presentation.ui.view
+package com.twaun95.clock.presentation.view
 
 import android.content.Context
 import android.util.AttributeSet

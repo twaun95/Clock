@@ -2,8 +2,9 @@ package com.twaun95.clock.presentation.ui.stopwatch
 
 import com.twaun95.clock.common.MutableNonNullLiveData
 import com.twaun95.clock.presentation.extensions.toDigitFormat
+import com.twaun95.clock.presentation.models.Lap
+import com.twaun95.clock.presentation.models.StopWatchState
 import com.twaun95.core.base.BaseViewModel
-import java.text.DecimalFormat
 import java.util.*
 import kotlin.concurrent.timer
 

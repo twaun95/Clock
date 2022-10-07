@@ -1,4 +1,4 @@
-package com.twaun95.clock.presentation.ui.main
+package com.twaun95.clock.presentation.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

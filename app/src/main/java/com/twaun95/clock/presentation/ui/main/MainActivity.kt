@@ -2,6 +2,7 @@ package com.twaun95.clock.presentation.ui.main
 
 import com.twaun95.clock.R
 import com.twaun95.clock.databinding.ActivityMainBinding
+import com.twaun95.clock.presentation.adapter.MainViewPagerAdapter
 import com.twaun95.core.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

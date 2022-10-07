@@ -1,4 +1,4 @@
-package com.twaun95.clock.service
+package com.twaun95.clock.handler
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -9,10 +9,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.getSystemService
 import com.twaun95.clock.R
-import com.twaun95.clock.common.Logger
 import com.twaun95.clock.presentation.ui.main.MainActivity
 
 class PushAlarmReceiver : BroadcastReceiver() {

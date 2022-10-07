@@ -1,6 +1,7 @@
 package com.twaun95.clock.presentation.ui.stopwatch
 
 import androidx.recyclerview.widget.DiffUtil
+import com.twaun95.clock.presentation.models.Lap
 
 class LapDiffUtilCallBack(
     private val oldList: List<Lap>,

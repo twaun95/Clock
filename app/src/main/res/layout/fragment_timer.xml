@@ -9,7 +9,7 @@
             name="fragmentVM"
             type="com.twaun95.clock.presentation.ui.timer.TimerFragmentViewModel" />
 
-        <import type="com.twaun95.clock.presentation.ui.timer.TimerViewState" />
+        <import type="com.twaun95.clock.presentation.models.TimerViewState" />
     </data>
 
     <FrameLayout

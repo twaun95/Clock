@@ -1,15 +1,14 @@
-package com.twaun95.clock.service
+package com.twaun95.clock.handler
 
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.media.RingtoneManager
 import android.os.Build
 import com.twaun95.clock.common.Logger
 import java.util.*
 
-class AlarmHandler(private val context: Context) {
+class PushAlarmHandler(private val context: Context) {
     private val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     fun setAlarm(hour: Int, minute: Int, message: String) {

@@ -1,12 +1,10 @@
 package com.twaun95.clock.presentation.ui.timer
 
-import androidx.lifecycle.viewModelScope
 import com.twaun95.clock.common.MutableNonNullLiveData
 import com.twaun95.clock.presentation.extensions.toDigitFormat
-import com.twaun95.clock.service.VibrationHandler
+import com.twaun95.clock.handler.VibrationHandler
+import com.twaun95.clock.presentation.models.TimerViewState
 import com.twaun95.core.base.BaseViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.concurrent.timer
 

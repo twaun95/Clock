@@ -9,7 +9,7 @@
             name="fragmentVM"
             type="com.twaun95.clock.presentation.ui.stopwatch.StopwatchFragmentViewModel" />
 
-        <import type="com.twaun95.clock.presentation.ui.stopwatch.StopWatchState" />
+        <import type="com.twaun95.clock.presentation.models.StopWatchState" />
     </data>
 
     <FrameLayout

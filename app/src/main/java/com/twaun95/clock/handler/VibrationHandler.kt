@@ -1,7 +1,6 @@
-package com.twaun95.clock.service
+package com.twaun95.clock.handler
 
 import android.content.Context
-import android.media.AudioAttributes
 import android.os.*
 
 class VibrationHandler(val context: Context) {
