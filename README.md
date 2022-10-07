@@ -21,6 +21,8 @@
 
 ### 푸시알람
 
+<img src="https://user-images.githubusercontent.com/43190509/194491902-5904a78b-1243-4b47-94c9-d57b20e8e81f.gif" width="200" height="400"/>
+
 사용 방법
 1. 알람시간을 선택하세요.
 2. 등록버튼을 누르면 토스트를 통해 등록 시간을 다시 한번 알립니다.
