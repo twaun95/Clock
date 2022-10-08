@@ -1,4 +1,13 @@
 # Clock
+타이머
+https://user-images.githubusercontent.com/43190509/194698121-90888c14-cd7d-4026-bf38-9216af19e129.mp4
+
+스톱워치
+https://user-images.githubusercontent.com/43190509/194698128-23766df5-7c50-4c94-a52a-53deaa7e42e7.mp4
+
+푸시알람
+https://user-images.githubusercontent.com/43190509/194698138-f463dc06-74e4-40d4-b4f7-b17242df2198.mp4
+
 
 여러 기능의 시계들(타이머, 스톱워치, 푸시알람)을 사용해보세요.
 
