@@ -1,5 +1,12 @@
 # Clock
+
+|  배경 색상 변경 | 펜 색상 변경 |
+|:----------:|:----------:|
+| <video src="https://user-images.githubusercontent.com/43190509/194696716-9aad7146-2ea4-438f-a1df-c3abcb468518.mp4" width="200" height="400" /> | <video src="https://user-images.githubusercontent.com/43190509/194696790-907b5ba7-d5ca-441f-ac28-31082eb75db0.mp4" width="200" height="400"/> |
+
+
 타이머
+<video src="https://user-images.githubusercontent.com/43190509/194698121-90888c14-cd7d-4026-bf38-9216af19e129.mp4" width="200" height="400" />
 https://user-images.githubusercontent.com/43190509/194698121-90888c14-cd7d-4026-bf38-9216af19e129.mp4
 
 스톱워치
