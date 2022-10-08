@@ -1,6 +1,6 @@
 # Clock
 
-|  배경 색상 변경 | 펜 색상 변경 | 3333 |
+| 타이머 | 스톱워치 | 푸시알람 |
 |:----------:|:----------:|:----------:|
 | <video src="https://user-images.githubusercontent.com/43190509/194698121-90888c14-cd7d-4026-bf38-9216af19e129.mp4" width="200" height="400" /> | <video src="https://user-images.githubusercontent.com/43190509/194698128-23766df5-7c50-4c94-a52a-53deaa7e42e7.mp4" width="200" height="400"/> | <video src="https://user-images.githubusercontent.com/43190509/194698138-f463dc06-74e4-40d4-b4f7-b17242df2198.mp4" width="200" height="400"/> |
 
@@ -8,8 +8,6 @@
 여러 기능의 시계들(타이머, 스톱워치, 푸시알람)을 사용해보세요.
 
 ## 타이머
-
-<img src="https://user-images.githubusercontent.com/43190509/194486005-78bcf435-8109-4639-a6d3-4446d4b674fa.gif" width="200" height="400"/>
 
 사용 방법
 1. 타이머 시간을 선택하세요.
@@ -19,8 +17,6 @@
 
 ## 스톱워치
 
-<img src="https://user-images.githubusercontent.com/43190509/194495468-12f12889-1c77-4e4d-8a22-f6f4cc0bd8f0.gif" width="200" height="400"/>
-
 사용 방법
 1. 시작버튼을 누르면 스톱워치 시간이 흘러갑니다.
 2. 계속/중지 로 시간을 멈추고 진행할 수 있습니다.
@@ -28,8 +24,6 @@
 4. 시간 중지 중에는 초기화를 해서 시간과 기록을 모두 처음으로 되돌립니다.
 
 ## 푸시알람
-
-<img src="https://user-images.githubusercontent.com/43190509/194491902-5904a78b-1243-4b47-94c9-d57b20e8e81f.gif" width="200" height="400"/>
 
 사용 방법
 1. 알람시간을 선택하세요.
